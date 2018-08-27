@@ -1,0 +1,11 @@
+supprimer:
+    path:  /supprimer/{id}
+    defaults: { _controller:venteachatBundle:Panier:supprimer }
+
+ajouter:
+    path:  /ajouter/{id}
+    defaults: { _controller:venteachatBundle:Panier:ajouter }
+
+panier:
+    path:  /
+    defaults: { _controller:venteachatBundle:Panier:panier }

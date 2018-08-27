@@ -1,0 +1,4 @@
+services:
+#    venteachat.example:
+#        class: vente\achatBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

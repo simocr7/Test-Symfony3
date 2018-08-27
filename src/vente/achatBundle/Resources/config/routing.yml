@@ -1,0 +1,11 @@
+achatvente:
+     resource: "@venteachatBundle/Resources/config/routing/achatvente.yml"
+     prefix: /
+     
+panier:
+     resource: "@venteachatBundle/Resources/config/routing/Panier.yml"
+     prefix: /panier
+          
+admin:
+     resource: "@venteachatBundle/Resources/config/routing/admin.yml"
+     prefix: /admin

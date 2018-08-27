@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{{asset('bundles/venteachat/css/style2.css')}}" rel="stylesheet">
+        <link href="{{asset('bundles/venteachat/css/stlss.css')}}" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </head>
+    {% block body %}
+        {{ form_start(form) }}
+        <fieldset>
+            <legend>{% block legendTitle %}{% endblock %}:</legend>
+            <div class="wrap">
+                <div>
+                    {{form_label(form.nom)}}
+                    {{form_widget(form.nom)}}
+                </div>
+
+                <div>
+                    {{form_label(form.description)}}
+                    {{form_widget(form.description)}}
+                </div>
+                <div>
+                    {{form_label(form.prix)}}
+                    {{form_widget(form.prix)}}
+                </div>
+                <div>
+                    <button name="enregistrer">{% block btn %}{% endblock %}</button>
+                </div>
+
+            </div>
+        </fieldset>
+        {{form_end(form)}}
+        <script src="{{asset('bundles/venteachat/js/koko.js')}}"></script> 
+    {% endblock %}
+</html>

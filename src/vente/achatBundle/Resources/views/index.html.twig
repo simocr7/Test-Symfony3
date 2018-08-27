@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title> {% block title %}Page layout{% endblock %}</title>
+        <meta charset="UTF-8"/>
+        {% block links %}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link  rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link  rel="stylesheet"  href="{{asset('bundles/venteachat/css/normalize.css')}}"/>
+        <link  rel="stylesheet"  href="{{asset('bundles/venteachat/css/style102.css')}}"/>
+        <link  rel="stylesheet"  href="{{asset('bundles/venteachat/css/style11.css')}}"/>
+        {% endblock %}
+    </head>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img src="{{asset('bundles/venteachat/photo/eco.png')}}"></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{{path('listProducts')}}">Home</a></li>
+      <li><a href="#">Tél:00000000000</a></li>
+      <li><a href="{{path('fos_user_security_login')}}">Espace Admin</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+      <ul class="nav navbar-nav navbar-right"> 
+        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{asset('bundles/venteachat/photo/united-kingdom.png')}}" name="widget" alt=""></a></li>
+        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><img src="{{asset('bundles/venteachat/photo/france.png')}}" name="widget" alt=""></a></li>
+    </ul>
+  </div>
+</nav>
+    {% block panier %}<div class="combien"><img src="{{asset('bundles/venteachat/photo/panier.png')}}" alt="panier"><span class="cont" style="">{% set sum = 0 %}{% for p in produits %} {% set sum = sum + panier[p.id] %} {% endfor %} {{sum }}</span> </div>{% endblock %}
+    <h1 class="text-center stls">{% block information %}{{'home.info1' | trans }} {% endblock %}</h1>
+    {% block body %}
+
+    {% endblock %}
+
+</html>

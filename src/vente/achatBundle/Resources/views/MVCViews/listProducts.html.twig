@@ -1,0 +1,20 @@
+{% extends '@venteachat/index.html.twig' %}
+{%block title %}{{'home.info1' | trans }} {% endblock %}
+{% block body %}
+           <div class="container pan">
+                    <div class="row siko justify-content-start">
+                         {% for p in pts %}  
+                            <div class="col-sm-4">
+                                <div class = "panel panel-default">
+                                    <div class = "panel-heading">
+                                        <h3 class="display-6" >{{p.nom}}</h3>
+                                    </div>
+                                    <div class = "panel-body">
+                                        <div class="display-6"><a href="{{path('display',{'id':p.id} )}}"><span class="koo">{{'home.details' | trans }}</span></a></div>                    
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+{% endblock %}

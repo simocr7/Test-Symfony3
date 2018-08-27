@@ -1,0 +1,11 @@
+display:
+    path: /display/{id}
+    defaults: { _controller:venteachatBundle:MVC:display}
+    
+listProducts:
+    path: /
+    defaults: { _controller:venteachatBundle:MVC:listProducts}
+    
+index:
+    path: /index
+    defaults: { _controller:venteachatBundle:MVC:index}

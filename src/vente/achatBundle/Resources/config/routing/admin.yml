@@ -1,0 +1,15 @@
+AddProduit:
+    path: /AddProduit
+    defaults: { _controller:venteachatBundle:MVC:adminAddProduit}
+    
+UpdateProduit:
+    path: /UpdateProduit/{id}
+    defaults: { _controller:venteachatBundle:MVC:adminUpdateProduit}
+    
+DeleteProduit:
+    path: /DeleteProduit/{id}
+    defaults: { _controller:venteachatBundle:MVC:adminDeleteProduit}
+    
+Admin:
+    path: /
+    defaults: { _controller:venteachatBundle:MVC:admin}

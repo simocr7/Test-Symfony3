@@ -1,0 +1,18 @@
+home:
+   details: For more details
+   info1: List of products
+panier: 
+    info1: Your basket
+    
+admin:
+    info1: Add New Product
+    info2: Add
+    info3: Delete Product
+    info4: Delete
+    info5: Update Product
+    info6: Update
+    info8: Log out
+   
+display:
+    info1: Add to Basket
+    info2: Delete from Basket

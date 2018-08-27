@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title> {% block title %}Page layout{% endblock %}</title>
+        <meta charset="UTF-8"/>
+        {% block links %}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link  rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link  rel="stylesheet"  href="{{asset('bundles/venteachat/css/normalize.css')}}"/>
+        <link  rel="stylesheet"  href="{{asset('bundles/venteachat/css/style102.css')}}"/>
+        <link  rel="stylesheet"  href="{{asset('bundles/venteachat/css/style11.css')}}"/>
+        {% endblock %}
+    </head>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img src="{{asset('bundles/venteachat/photo/eco.png')}}"></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="{{path('AddProduit')}}">{{'admin.info1' | trans }}</a></li>
+      <li><a href="#">Tel:0762692643</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+      <ul class="nav navbar-nav navbar-right"> 
+        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{asset('bundles/venteachat/photo/united-kingdom.png')}}" name="widget" alt=""></a></li>
+        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><img src="{{asset('bundles/venteachat/photo/france.png')}}" name="widget" alt=""></a></li>
+        <li><a href="{{path('fos_user_security_logout')}}" class="btn btn-info btn-lg"> <span class="glyphicon glyphicon-log-out"></span> {{'admin.info8' | trans }}</a></li>
+      </ul>
+  </div>
+</nav>
+    <h1 class="text-center stls">{% block information %}{{'home.info1' | trans }} {% endblock %}</h1>
+    {% block body %}
+      <div class="container pan">
+            <div class="row">
+                <div class="span9">  
+                    <div class="col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped ">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Description</th>
+                                        <th>Prix €</th>
+                                        <th colspan="3">{{'admin.info2' | trans }}|{{'admin.info4' | trans }}|{{'admin.info3' | trans }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for produit in produits %}
+                                        <tr>
+                                        <td>{{ produit.nom }}</td>
+                                        <td>{{ produit.description }}</td>
+                                        <td>{{ produit.prix }}</td>
+                                        <td><a href="{{path('AddProduit',{'id':produit.id} )}}"><button class="btn-primary">{{'admin.info2' | trans }}</button></td>
+                                        <td><a href="{{path('UpdateProduit',{'id':produit.id} )}}"><button class="btn-primary">{{'admin.info4' | trans }}</button></td>
+                                        <td><a href="{{path('DeleteProduit',{'id':produit.id} )}}"><button class="btn-primary">{{'admin.info6' | trans }}</button></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+    {% endblock %}
+
+</html>

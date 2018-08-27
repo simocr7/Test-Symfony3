@@ -1,0 +1,55 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% if error %}
+   <div class="goo attention">
+  <span class="closebtn">&times;</span>  
+  <strong>Warning!</strong> {{ error.messageKey|trans(error.messageData, 'security') }}
+</div>
+{% endif %}
+<body class="my-login-page">
+    <div class="parallax">
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row">
+                <div class="card-wrapper">
+                    <div class="card fat">
+                        <div class="card-body">
+                            <h3 class="card-title">Login</h3>
+                            <form action="{{ path("fos_user_security_check") }}" method="post">
+                                {% if csrf_token %}
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                {% endif %}
+                                <div class="form-group">
+                                    <label for="username">{{ 'security.login.username'|trans }}</label>
+                                    <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" required="required" autocomplete="username" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">{{ 'security.login.password'|trans }}
+                                        <a href="forgot.html"><span class="forgot">Forgot Password?</span></a>
+                                    </label>
+                                    <input type="password" id="password" class="form-control"  name="_password"  autocomplete="current-password" required data-eye />
+                                </div>
+                                <div class="form-group">
+                                    <div class="rememb">
+                                    <label for="remember_me">
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                    {{ 'security.login.remember_me'|trans }}</label>
+                                    </div>
+                                </div>
+                                <div class="form-group no-margin">
+                                    <button type="submit" class="btn btn-primary btn-block" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">
+                                        <span class="login">  Login</span></button>
+                                </div>
+                                <div class="margin-top20 text-center">
+                                    <span class="account"> Don't have an account? <a href="{{path('fos_user_registration_register')}}">Create One</span></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+    <script src="{{asset('bundles/venteachat/js/jquery.min.js')}}"></script>
+    <script src="{{asset('bundles/venteachat/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('bundles/venteachat/js/my-login.js')}}"></script>
+</body>

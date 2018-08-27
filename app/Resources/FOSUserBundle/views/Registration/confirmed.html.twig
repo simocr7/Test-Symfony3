@@ -1,0 +1,15 @@
+{% extends "@FOSUser/layout.html.twig" %}
+{%block title %}Confirm your membership {% endblock %}
+{%block links %} 
+    <link rel="stylesheet" type="text/css" href="{{asset('bundles/venteachat/css/confirm.css')}}"> 
+{% endblock %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="confirm">
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    {% if targetUrl %}
+    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+    </div>
+{% endblock fos_user_content %}

@@ -1,0 +1,19 @@
+home:
+   details: Pour plus de détails
+   info1: liste de produits
+panier: 
+    info1: Votre panier
+    
+admin:
+    info1: Ajouter Produit
+    info2: Ajouter
+    info3: Modifier Produit
+    info4: Modifier
+    info5: Supprimer Produit
+    info6: Supprimer 
+    info8: Déconnexion
+    
+display:
+    info1: Ajouter au panier
+    info2: supprimer du panier
+    
